@@ -52,5 +52,80 @@ fn escopo(){
 fn main(){
     escopo();
     sombra();
-    println!("Soma = {}", soma(2, 2))
+
+    println!("Soma = {}", soma(2, 2));
+
+    condicionais();
+    repeticoes();
+}
+
+fn condicionais() {
+    let idade:u8 = 18;
+    let responsavel_autorizou = true;
+    let eh_maior = idade >= 18;
+
+    if eh_maior{
+        println!("Pode entrar na balada!");
+    } else if  idade > 16 && responsavel_autorizou {
+        println!("Pode entrar na balada com assinatura do responsável");
+    }
+    else{
+        println!("Não pode entrar na balada!");
+    }
+
+    let condicao = if eh_maior { "maior" } else { "menor" };
+
+    println!("É {} de idade", condicao);
+
+    let linguagem = "PHP";
+    let proposito = match linguagem {
+        "PHP" => "Web",
+        "KOTLIN" => "Android",
+        "Python" => "Data Science",
+        _ => "Desconhecido"
+    };
+
+    println!("O propósito de {} é {}", linguagem, proposito);
+}
+
+fn repeticoes(){
+    let multiplicador:u8 = 5;
+
+    let mut contador:u8 = 0;
+
+    while contador < 10 {
+        contador += 1;
+
+        if contador == 5 { 
+            continue; 
+        }
+        
+        println!("{} x {} = {}", multiplicador, contador, multiplicador * contador);
+    }
+
+    contador = 0;
+    loop {
+        contador += 1;
+
+        if contador == 5 { 
+            continue; 
+        }
+
+        println!("{} x {} = {}", multiplicador, contador, multiplicador * contador);
+
+        if contador == 10 {
+            break;
+        }
+    }
+
+    contador = 0;
+    for i in 1..11{ // ou 1..=10
+        contador += 1;
+
+        if contador == 5 { 
+            continue; 
+        }
+
+        println!("{} x {} = {}", multiplicador, i, multiplicador * i);
+    }
 }
