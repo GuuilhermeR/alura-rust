@@ -2,6 +2,12 @@ const PI:f32 = 3.14; //const precisa sempre informar o valor.
 //static VARIAVEL_GLOBAL:u8 = 1; -- variável global usar o static (static = const, ambas precisam ter valores definidos), como mutáveis é inseguro.
 static mut VARIAVEL_GLOBAL:u8 = 1;// variável global usar o static (static = const, ambas precisam ter valores definidos), como mutáveis é inseguro.
 
+fn soma(a:i32, b:i32) -> i32 // Parâmetros precisa informar o tipo. O retorno é "mostrado" com "->" e o tipo do retorno.
+{
+    println!("{} + {} = {}", a, b, a + b);
+    a + b // para retornar não utiliza o ;. Quando omito o ; ele me dá o retorno, quando utilizo eu sinalizo que é o fim da expressão e ignoro. Pode utilizar return também.
+}
+
 fn sombra() {
     let a = 123;
 
@@ -20,7 +26,7 @@ fn sombra() {
 
 fn escopo(){
 
-    let essa_string:&'static str= "meu nome"; // É um valor constante e não aloca memória, mas tem endereço. Não tem como pegar, por exemplo: essa_string[0]
+    // let essa_string:&'static str= "meu nome"; // É um valor constante e não aloca memória, mas tem endereço. Não tem como pegar, por exemplo: essa_string[0]
 
     println!("PI = {}", PI); // todos lugares que tiver o PI ele vai substituir tudo por 3.14 e não armazena memória.
 
@@ -46,4 +52,5 @@ fn escopo(){
 fn main(){
     escopo();
     sombra();
+    println!("Soma = {}", soma(2, 2))
 }
