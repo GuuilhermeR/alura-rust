@@ -176,8 +176,7 @@ fn erros(){
     // v[4]; // tentar pegar um vetor com índice 4.
 }
 
-fn resultado() -> Result<String, u8>
-{
+fn resultado() -> Result<String, u8>{
     // Ok(String::from("Tudo deu certo"))
     Err(42)
 }
